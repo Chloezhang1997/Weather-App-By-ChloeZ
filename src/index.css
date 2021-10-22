@@ -1,0 +1,31 @@
+h1 {
+    color: blue;
+  }
+  h1 {
+    text-align: center;
+    font: weight 900px;
+  }
+  .card-group {
+    text-align: center;
+  }
+  #city {
+    font-size: 15px;
+  }
+  li {
+    list-style: none;
+  }
+  .next {
+    color: grey;
+  }
+  .est {
+    text-align: left;
+  }
+  .sun {
+    padding-left: 100px;
+  }
+  .icon {
+    font-size: 200px;
+  }
+ul{list-style: none; color: grey;}
+ 
+  .locationTime{text-align: left;}

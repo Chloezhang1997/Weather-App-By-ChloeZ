@@ -8,25 +8,26 @@
     <script src="https://kit.fontawesome.com/530e781666.js" crossorigin="anonymous"></script>
     <link href="src/styles.css" />
     <link rel="stylesheet" href="pluseweek3homework.html">
-    <link rel="stylesheet" href="src/styles.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="src/index.css">
 </head>
 
 <body>
     <div class="container">
 
 
-        <h1>
+       
 
             <div class="card">
                 <div class="card-body">
-                    <h3>
+                    <h1>
+                        
                         <form class="search-form" id="search-form">
                             <h4>
                                 <div class="row">
@@ -37,29 +38,29 @@
                                     </div>
                                     <div class="col-3">
                                         <button type="button" class="btn btn-primary" id="current-location-button"
-                                            value="Current">Search</button>
+                                            value="Current">Search</button>  
                                     </div>
 
                                 </div>
                             </h4>
-                            <br>
-                    </h3>
+                        </h1>
                     <span class="location" id="search-city"> </span>
                     <div class="pin" id="current-time">
 
-                        <div class="row">
-                            <div class="col-6">
-                    
+                        <div class="container">
+                            <div class="row">
+                              <div class="col-6 col-sm-4">
+
                                 <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Sunny">
-                          
-                    
-                            12°C|°F
-                    
+
+
+                                12°C|°F
+
+                            </div>
+
                         </div>
-                    
-                        </div>
-                        <div class="col-6">
-                            <ul>
+                        <div class="col-6 col-sm-4">
+                            <ul class="details">
                                 <li>
                                     Precipitation: 0%
                                 </li>
@@ -68,16 +69,16 @@
                                 </li>
                                 <li>
                                     Wind: 2 km/h
-                    
+
                                 </li>
-                    
+
                             </ul>
-                    
-                    
-                    
-                    
+
+
                         </div>
-                    
+
+                        </div>
+
                         <div class="float-left">
                             <span class="temperature" id="temperature"> <span class="temperature"
                                     id="temperature"></span><span class="units"></span></span><span class="units">
@@ -89,29 +90,34 @@
 
                 </div>
             </div>
-            <h4>
+        
+            <div class="current-time" class="locationTime">
                 <button type="button" class="btn btn-info" class="CurrentLocation " id="id = " find-me">Current Location
                 </button>
-            </h4>
+            </dov>
             <p id="datetime"></p>
 
             Last updated:
-            <h4>
+          
                 <div id="digital-clock"></div>
-            </h4>
+        
+
+                
+                      
+                  
+             
+                  
+
+
 
 
             </form>
-        </h1>
+       
 
         <small>
-            <a
-              href=""
-              target="_blank"
-              >Open-source code</a
-            >
+            <a href="" target="_blank">Open-source code</a>
             by Chloe Zhang
-          </small>
+        </small>
 
         <script src="src/index.js">
 
