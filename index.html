@@ -22,108 +22,96 @@
     <div class="container">
 
 
-       
 
-            <div class="card">
-                <div class="card-body">
-                    <h1>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="weather-app-wrapper">
+                    <div class="weather-app">
+
                         
-                        <form class="search-form" id="search-form">
-                            <h4>
-                                <div class="row">
-                                    <div class="col-9">
-                                        <input input type="search" autofocus="on" autocomplete="on" id="city-input"
-                                            class="form-control shadow-sm" type="text" name="Search for other City"
-                                            id="city" placeholder="Search for other City">
-                                    </div>
-                                    <div class="col-3">
-                                        <button type="button" class="btn btn-primary" id="current-location-button"
-                                            value="Current">Search</button>  
-                                    </div>
+                <h1>
 
-                                </div>
-                            </h4>
-                        </h1>
-                    <span class="location" id="search-city"> </span>
-                    <div class="pin" id="current-time">
-
-                        <div class="container">
+                    <form class="search-form" id="search-form">
+                        <h4>
                             <div class="row">
-                              <div class="col-6 col-sm-4">
-
-                                <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Sunny">
-
-
-                                12°C|°F
+                                <div class="col-9">
+                                    <input type="search" autofocus="on" autocomplete="on" id="city-input"
+                                        class="form-control shadow-sm" type="text" name="Search for other City"
+                                        id="city" placeholder="Search for other City">
+                                </div>
+                                <div class="col-3">
+                                    <input type="button" class="btn btn-primary" id="current-location-button"
+                                        value="Search"></input>
+                                </div>
 
                             </div>
+                        </h4>
+                </h1>
 
-                        </div>
+                <div class="container">
+                    <div class="row">
                         <div class="col-6 col-sm-4">
-                            <ul class="details">
-                                <li>
-                                    Precipitation: 0%
-                                </li>
-                                <li>
-                                    Humidity: 73%
-                                </li>
-                                <li>
-                                    Wind: 2 km/h
+                            <h5>
+                                <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Sunny">
+                                <div class="float-left">
+                                    <span class="location" id="search-city"> </span>
+                                    <div class="pin" id="current-time">
 
-                                </li>
+                                        <div class="float-left">
+                                            <strong id="temperature"></strong
+                                                ><span class="units"
+                                                  ><a href="#" id="celsius-link" class="active">°C</a> |
+                                                  <a href="#" id="fahrenheit-link">°F</a></span
+                                                >
+                                        </div>
 
-                            </ul>
+                            </h5>
 
 
                         </div>
+                    </div>
+                    <div class="col-6 col-sm-4">
+                        <ul class="details">
+                            <li> <li>Humidity: <span id="humidity"></span>%</li>
+                            <li>Wind: <span id="wind"></span> km/h</li>
 
-                        </div>
+                        </ul>
 
-                        <div class="float-left">
-                            <span class="temperature" id="temperature"> <span class="temperature"
-                                    id="temperature"></span><span class="units"></span></span><span class="units">
-                                <a href="#" id="celsius-link"></a>
-                                <a href="#" id="fahrenheit-link"></a>
-                            </span>
-                        </div>
+
                     </div>
 
                 </div>
+
+
             </div>
-        
-            <div class="current-time" class="locationTime">
-                <button type="button" class="btn btn-info" class="CurrentLocation " id="id = " find-me">Current Location
-                </button>
-            </dov>
-            <p id="datetime"></p>
 
-            Last updated:
-          
-                <div id="digital-clock"></div>
-        
-
-                
-                      
-                  
-             
-                  
+        </div>
 
 
+        <div class="current-time" class="locationTime">
+            <button type="button" class="btn btn-info" class="CurrentLocation " id="id = " find-me">Current Location
+            </button>
+        </div>
+        <p id="datetime"></p>
 
+        Last updated:
 
-            </form>
-       
-
+        <div id="digital-clock"></div>
         <small>
             <a href="" target="_blank">Open-source code</a>
             by Chloe Zhang
         </small>
+        </form>
 
-        <script src="src/index.js">
+    </div>
+</div>
+</div>
+    <script src="src/index.js">
 
 
 
-        </script>
+    </script>
 </body>
 
 </html>

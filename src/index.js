@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 function getDateTime() {
     let days = [
       "Sunday",
@@ -8,9 +15,9 @@ function getDateTime() {
       "Friday",
       "Saturday"
     ];
-  
+ 
     let now = new Date();
-    // let year = now.getFullYear();
+    let year = now.getFullYear();
     let month = now.getMonth() + 1;
     let day = days[now.getDay()];
     let hour = now.getHours();
@@ -50,21 +57,25 @@ function getDateTime() {
   
   let currentTime = new Date();
   
-  let fahrenheitLink = document.querySelector("#fahrenheit-link");
-  fahrenheitLink.addEventListener("click", convertToFahrenheit);
+  function displayFahrenheitTemperature(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
   
-  let celsiusLink = document.querySelector("#celsius-link");
-  celsiusLink.addEventListener("click", convertToCelsius);
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+    temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+  }
   
   function showTemperature(response) {
     console.log(response);
     let cityTemp = Math.round(response.data.main.temp);
     let tempNumber = document.querySelector("#temperature");
-    tempNumber.innerHTML = `${cityTemp}°F`;
+    tempNumber.innerHTML = `${cityTemp}`;
     let h1 = document.querySelector(".location");
     h1.innerHTML = response.data.name;
   }
-  
+ 
   function city(event) {
     event.preventDefault();
   
@@ -79,13 +90,24 @@ function getDateTime() {
   let searchForm = document.querySelector("#search-form");
   searchForm.addEventListener("submit", city);
   
-  //2
+  function displayCelsiusTemperature(event) {
+    event.preventDefault();
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  } 
   
-  function showWeather(response) {
-    let h4 = document.querySelector("h4");
-    let temperature = Math.round(response.data.main.temp);
-    h4.innerHTML = `It is currently ${temperature}° in ${response.data.name}`;
-  }
+  let celsiusTemperature = null;
+
+  let form = document.querySelector("#search-form");
+  form.addEventListener("submit", handleSubmit);
+  
+  let fahrenheitLink = document.querySelector("#fahrenheit-link");
+  fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+  
+  let celsiusLink = document.querySelector("#celsius-link");
+  celsiusLink.addEventListener("click", displayCelsiusTemperature); 
   
   function retrievePosition(position) {
     let apiKey = "002c6c2205afdd4fb34a1392f8b68aca";
@@ -129,4 +151,5 @@ function getDateTime() {
   document
     .querySelector("#current-location-button")
     .addEventListener("click", geoFindMe);
-  
+    
+
