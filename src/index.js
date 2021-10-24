@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 function getDateTime() {
     let days = [
       "Sunday",
@@ -41,31 +34,46 @@ function getDateTime() {
     var dateTime = day + " " + hour + ":" + minute + ":" + second;
     return dateTime;
   }
-  
-  setInterval(function () {
-    currentTime = getDateTime();
-    document.getElementById("digital-clock").innerHTML = currentTime;
-  }, 1000);
-  
-  function convertToFahrenheit(event) {
-    event.preventDefault();
-  }
-  
-  function convertToCelsius(event) {
-    event.preventDefault();
-  }
-  
+ function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+        <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
+        </div>
+      </div>
+  `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+ 
   let currentTime = new Date();
   
-  function displayFahrenheitTemperature(event) {
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-  
-    celsiusLink.classList.remove("active");
-    fahrenheitLink.classList.add("active");
-    let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-    temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-  }
+
   
   function showTemperature(response) {
     console.log(response);
@@ -90,66 +98,50 @@ function getDateTime() {
   let searchForm = document.querySelector("#search-form");
   searchForm.addEventListener("submit", city);
   
-  function displayCelsiusTemperature(event) {
-    event.preventDefault();
-    celsiusLink.classList.add("active");
-    fahrenheitLink.classList.remove("active");
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  } 
   
-  let celsiusTemperature = null;
-
-  let form = document.querySelector("#search-form");
-  form.addEventListener("submit", handleSubmit);
   
-  let fahrenheitLink = document.querySelector("#fahrenheit-link");
-  fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-  
-  let celsiusLink = document.querySelector("#celsius-link");
-  celsiusLink.addEventListener("click", displayCelsiusTemperature); 
-  
-  function retrievePosition(position) {
-    let apiKey = "002c6c2205afdd4fb34a1392f8b68aca";
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-    axios.get(url).then(showWeather);
-  }
-  
-  navigator.geolocation.getCurrentPosition(retrievePosition);
-  
-  function geoFindMe() {
-    const status = document.querySelector("#status");
-    const mapLink = document.querySelector("#map-link");
-  
-    mapLink.href = "";
-    mapLink.textContent = "";
-  
-    function success(position) {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-  
-      status.textContent = "";
-      mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-      mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
-      axios.get(geoFindMe).then(showTemperature);
-    }
-  
-    function error() {
-      status.textContent = "Unable to retrieve your location";
-    }
-  
-    if (!navigator.geolocation) {
-      status.textContent = "Geolocation is not supported by your browser";
-    } else {
-      status.textContent = "Locating…";
-      navigator.geolocation.getCurrentPosition(success, error);
-    }
-  }
-  
-  document
-    .querySelector("#current-location-button")
-    .addEventListener("click", geoFindMe);
     
-
+    
+    
+    function displayTemperature(response) {
+      let temperatureElement = document.querySelector("#temperature");
+      let cityElement = document.querySelector("#city");
+      let descriptionElement = document.querySelector("#description");
+      let humidityElement = document.querySelector("#humidity");
+      let windElement = document.querySelector("#wind");
+      let dateElement = document.querySelector("#date");
+      let iconElement = document.querySelector("#icon");
+    
+      celsiusTemperature = response.data.main.temp;
+    
+      temperatureElement.innerHTML = Math.round(celsiusTemperature);
+      cityElement.innerHTML = response.data.name;
+      descriptionElement.innerHTML = response.data.weather[0].description;
+      humidityElement.innerHTML = response.data.main.humidity;
+      windElement.innerHTML = Math.round(response.data.wind.speed);
+      dateElement.innerHTML = formatDate(response.data.dt * 1000);
+      iconElement.setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      );
+      iconElement.setAttribute("alt", response.data.weather[0].description);
+    
+      getForecast(response.data.coord);
+    }
+    
+    function search(city) {
+      let apiKey = "002c6c2205afdd4fb34a1392f8b68aca";
+      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      axios.get(apiUrl).then(displayTemperature);
+    }
+    
+    function handleSubmit(event) {
+      event.preventDefault();
+      let cityInputElement = document.querySelector("#city-input");
+      search(cityInputElement.value);
+    }
+    
+    let form = document.querySelector("#search-form");
+    form.addEventListener("submit", handleSubmit);
+   d
+    search("New York");
