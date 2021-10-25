@@ -30,7 +30,7 @@
                     <div class="weather-app">
 
                         
-                <h1>
+                <h1 >
 
                     <form class="search-form" id="search-form">
                         <h4>
@@ -38,7 +38,7 @@
                                 <div class="col-9">
                                     <input type="search" autofocus="on" autocomplete="on" id="city-input"
                                         class="form-control shadow-sm" type="text" name="Search for other City"
-                                        id="city" placeholder="Search for other City">
+                                         id="city" placeholder="Search for other City">
                                 </div>
                                 <div class="col-3">
                                     <input type="button" class="btn btn-primary" id="current-location-button"
@@ -50,6 +50,15 @@
                 </h1>
 
                 <div class="container">
+                    <div class="current-time" class="locationTime">
+                        <button type="button" class="btn btn-info" class="CurrentLocation " id="id = " find-me">Current Location
+                        </button>
+                    </div>
+                    <p id="datetime"></p>
+            
+                    Last updated:
+            
+                    <div id="digital-clock"></div>
                     <div class="row">
                         <div class="col-6 col-sm-4">
                             <h5>
@@ -61,8 +70,8 @@
                                        <div class="float-left">
                                             <strong id="temperature"></strong
                                                 ><span class="units"
-                                                  ><a href="#" id="celsius-link" class="active">°C</a> |
-                                                  <a href="#" id="fahrenheit-link">°F</a></span
+                                                  ><a href="#" id="celsius-link" class="active"></a> 
+                                                  <a href="#" id="fahrenheit-link"></a></span
                                                 >
                                         </div>
 
@@ -73,8 +82,9 @@
                     </div>
                     <div class="col-6 col-sm-4">
                         <ul class="details">
-                            <li> <li>Humidity: <span id="humidity"></span>%</li>
-                            <li>Wind: <span id="wind"></span> km/h</li>
+                           <li class="description"></li>
+                             <li> <span id="humidity"></span></li>
+                            <li> <span id="wind"></span> </li>
 
                         </ul>
 
@@ -89,15 +99,7 @@
         </div>
 
 
-        <div class="current-time" class="locationTime">
-            <button type="button" class="btn btn-info" class="CurrentLocation " id="id = " find-me">Current Location
-            </button>
-        </div>
-        <p id="datetime"></p>
-
-        Last updated:
-
-        <div id="digital-clock"></div>
+        
         <small>
             <a href="" target="_blank">Open-source code</a>
             by Chloe Zhang
