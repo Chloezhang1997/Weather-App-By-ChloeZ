@@ -147,4 +147,20 @@ document.querySelector("#current-location-button")
     axios.get(apiUrl).then(displayForecast);
   }
 
+  function showPosition(position) {
+    let h1 = document.querySelector("h1");
+    h1.innerHTML = `Your Latitude is ${
+      position.coords.latitude
+    } and your longitude is ${position.coords.longitude}`;
+  }
+
+  function getCurrentPosition() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+
+  let button = document.querySelector("button");
+  button.addEventListener("click", getCurrentPosition);
+
+
+
   
