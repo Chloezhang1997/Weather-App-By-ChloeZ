@@ -29,64 +29,67 @@
                 <div class="weather-app-wrapper">
                     <div class="weather-app">
 
-                        
-                <h1 >
 
-                    <form class="search-form" id="search-form">
-                        <h4>
-                            <div class="row">
-                                <div class="col-9">
-                                    <input type="search" autofocus="on" autocomplete="on" id="city-input"
-                                        class="form-control shadow-sm" type="text" name="Search for other City"
-                                         id="city" placeholder="Search for other City">
-                                </div>
-                                <div class="col-3">
-                                    <input type="button" class="btn btn-primary" id="current-location-button"
-                                        value="Search"></input>
-                                </div>
+                        <h1>
 
-                            </div>
-                        </h4>
-                </h1>
-
-                <div class="container">
-                    <div class="current-time" class="locationTime">
-                        <button type="button" class="btn btn-info" class="CurrentLocation " id="id = " find-me">Current Location
-                        </button>
-                    </div>
-                    <p id="datetime"></p>
-            
-                    Last updated:
-            
-                    <div id="digital-clock"></div>
-                    <div class="row">
-                        <div class="col-6 col-sm-4">
-                            <h5>
-                                <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Sunny">
-                                <div class="float-left">
-                                    <span class="location" id="search-city"> </span>
-                                    <div class="pin" id="current-time">
-
-                                       <div class="float-left">
-                                            <strong id="temperature"></strong
-                                                ><span class="units"
-                                                  ><a href="#" id="celsius-link" class="active"></a> 
-                                                  <a href="#" id="fahrenheit-link"></a></span
-                                                >
+                            <form class="search-form" id="search-form">
+                                <h4>
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <input type="search" autofocus="on" autocomplete="on" id="city-input"
+                                                class="form-control shadow-sm" type="text" name="Search for other City"
+                                                id="city" placeholder="Search for other City">
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="submit" class="btn btn-primary" value="Search" />
                                         </div>
 
-                            </h5>
+                                    </div>
+                                </h4>
+                        </h1>
 
+                        <div class="container">
+                            <div class="current-time" class="locationTime">
+                                <button type="button" class="btn btn-info" class="CurrentLocation " id="id = "
+                                    find-me">Current Location
+                                </button>
+                            </div>
+                            <p id="datetime"></p>
+
+                            Last updated:
+
+                            <div id="digital-clock"></div>
+                            <div class="row">
+                                <div class="col-6 col-sm-4">
+                                    <h5>
+                                        <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="Sunny">
+                                        <div class="float-left">
+                                            <span class="location" id="search-city"> </span>
+                                            <div class="pin" id="current-time">
+
+                                                <div class="float-left">
+                                                    <strong id="temperature"></strong><span class="units"><a href="#"
+                                                            id="celsius-link" class="active"></a>
+                                                        <a href="#" id="fahrenheit-link"></a></span>
+                                                </div>
+
+                                    </h5>
+
+
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <ul class="details">
+                                    <li class="description"></li>
+                                    <li> <span id="humidity"></span></li>
+                                    <li> <span id="wind"></span> </li>
+
+                                </ul>
+
+
+                            </div>
 
                         </div>
-                    </div>
-                    <div class="col-6 col-sm-4">
-                        <ul class="details">
-                           <li class="description"></li>
-                             <li> <span id="humidity"></span></li>
-                            <li> <span id="wind"></span> </li>
-
-                        </ul>
 
 
                     </div>
@@ -94,21 +97,16 @@
                 </div>
 
 
+
+                <small>
+                    <a href="" target="_blank">Open-source code</a>
+                    by Chloe Zhang
+                </small>
+                </form>
+
             </div>
-
         </div>
-
-
-        
-        <small>
-            <a href="" target="_blank">Open-source code</a>
-            by Chloe Zhang
-        </small>
-        </form>
-
     </div>
-</div>
-</div>
     <script src="src/index.js">
 
 
