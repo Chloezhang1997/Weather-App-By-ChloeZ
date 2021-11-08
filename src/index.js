@@ -61,7 +61,7 @@ function showTemperature(response) {
   let cityTemp = Math.round(response.data.main.temp);
   let tempNumber = document.querySelector("#temperature");
   tempNumber.innerHTML = `${cityTemp}°F`;
-  let descriptionElement = document.querySelector("#description");
+  let descriptionElement = document.querySelector(".description");
 
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
@@ -69,18 +69,14 @@ function showTemperature(response) {
   let h5 = document.querySelector(".location");
   h5.innerHTML = response.data.name;
 
-  
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
 
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
- 
 }
 
 function city(event) {
@@ -105,7 +101,7 @@ function retrievePosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-  axios.get(url).then(showWeather);
+ axios.get(url).then(showTemperature);
 }
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
